@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b209cc3" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="a20a0fac-8919-4ba2-9bf5-15edee2b7cb6">
+  <bpmn:collaboration id="Collaboration_07bmkw8">
+    <bpmn:participant id="Participant_1ar11o2" name="JupyterHub Update Process AS IS" processRef="Process_1j2qiko" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1j2qiko" name="jupyterhub_update_as_is" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0oqx0x4">
+      <bpmn:lane id="Lane_0jkh3p7" name="Customer">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_12419jv" name="MLOps">
+        <bpmn:flowNodeRef>Activity_1irz7ko</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0sjxnm6" name="Gitlab CI/CD" />
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Поступил запрос в чат в Telegram">
+      <bpmn:outgoing>Flow_1i7cfcp</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1i7cfcp" sourceRef="StartEvent_1" targetRef="Activity_1irz7ko" />
+    <bpmn:userTask id="Activity_1irz7ko" name="Завести задачу в YouTrack">
+      <bpmn:incoming>Flow_1i7cfcp</bpmn:incoming>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_07bmkw8">
+      <bpmndi:BPMNShape id="Participant_1ar11o2_di" bpmnElement="Participant_1ar11o2" isHorizontal="true">
+        <dc:Bounds x="152" y="92" width="600" height="370" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0jkh3p7_di" bpmnElement="Lane_0jkh3p7" isHorizontal="true">
+        <dc:Bounds x="182" y="92" width="570" height="125" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_12419jv_di" bpmnElement="Lane_12419jv" isHorizontal="true">
+        <dc:Bounds x="182" y="217" width="570" height="125" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0sjxnm6_di" bpmnElement="Lane_0sjxnm6" isHorizontal="true">
+        <dc:Bounds x="182" y="342" width="570" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="252" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="227" y="175" width="87" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1y23ndx_di" bpmnElement="Activity_1irz7ko">
+        <dc:Bounds x="340" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1i7cfcp_di" bpmnElement="Flow_1i7cfcp">
+        <di:waypoint x="288" y="150" />
+        <di:waypoint x="390" y="150" />
+        <di:waypoint x="390" y="240" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
